@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        header { background-color: #333; color: white; text-align: center; padding: 2em 0; }
+        section { padding: 2em 10%; }
+        .about, .skills, .projects, .certificates { margin-bottom: 3em; }
+        h2 { color: #333; }
+        ul { list-style-type: none; padding-left: 0; }
+        li { background-color: #eee; margin: 0.5em 0; padding: 1em; border-radius: 5px; }
+        footer { background-color: #333; color: white; text-align: center; padding: 1em 0; position: fixed; width: 100%; bottom: 0; }
+        .project-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5em;
+        }
+        
+        /* Force exactly 2 cards per row on large screens */
+        @media (min-width: 768px) {
+            .project-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5em;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .card h3 {
+            margin-top: 0;
+            color: #444;
+        }
+        
+        .card p {
+            color: #666;
+        }
+        /* Sidebar styling */
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.4s;
+            padding-top: 60px;
+        }
+
+        .sidebar a {
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+
+        .sidebar .closebtn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 30px;
+            color: white;
+        }
+
+        .openbtn {
+            font-size: 30px;
+            cursor: pointer;
+            background-color: transparent;
+            color: #333;
+            padding: 10px 15px;
+            border: none;
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            z-index: 2;
+        }
+
+        /* Push content when sidebar is open */
+        body.sidebar-open {
+            margin-left: 250px;
+            transition: margin-left 0.4s;
+        }
+
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two columns */
+            gap: 1em;
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+        
+        .skills-list li {
+            background-color: #eee;
+            padding: 1em;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+        @media (max-width: 600px) {
+            .skills-list {
+                grid-template-columns: 1fr; /* Stack on small screens */
+            }
+        }
+        .contact-list {
+            list-style-type: none;
+            padding-left: 0;
+            line-height: 2;
+        }
+        
+        .contact-list li {
+            background-color: #eee;
+            margin: 0.5em 0;
+            padding: 1em;
+            border-radius: 5px;
+        }
+        
+        .contact-list a {
+            color: #0077b5;
+            text-decoration: none;
+        }
+        
+        .contact-list a:hover {
+            text-decoration: underline;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="sidebar" id="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">&times;</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+    
+    <span class="openbtn" onclick="toggleSidebar()">&#9776;</span>
+    
+    <header>
+        <h1>Yash Kesharwani</h1>
+        <p>Software Developer | Data Analyst | ML Practionar</p>
+    </header>
+
+    <section class="about", id='about'>
+        <h2>About Me</h2>
+        <p>BE candidate in Artificial Intelligence and Data Science with intermediate knowledge in Python, SQL, and data 
+analysis frameworks. Demonstrated expertise in high-volume data processing, predictive modeling, and 
+operational optimisation. Adept at delivering precise and high-quality outcomes in dynamic, high stakes 
+environments.</p>
+    </section>
+
+    <section class="skills" id="skills">
+        <h2>Skills</h2>
+        <ul class="skills-list">
+            
+                <li>Python</li>
+            
+                <li>Django</li>
+            
+                <li>Flask</li>
+            
+                <li>MySQL</li>
+            
+                <li>HTML</li>
+            
+                <li>CSS</li>
+            
+        </ul>
+    </section>
+    
+
+    <section class="projects" id='projects'>
+        <h2>Projects</h2>
+        <div class="project-cards">
+            
+            <div class="card">
+                <h3>Second-hand Car Price Prediction</h3>
+                <p>•	Built and deployed an end-to-end machine learning-powered web application with 98% prediction accuracy to estimate the current market value of second-hand cars, enhancing user decision-making in car resale and purchase.
+•	Utilized Python, Flask, HTML, CSS, JavaScript, and deployed the solution using Git, GitHub, and AWS EC2, enabling seamless accessibility and scalability.
+•	Performed extensive data preprocessing, exploratory data analysis (EDA), and model development, integrating a CI/CD pipeline for automated testing and continuous deployment</p>
+            </div>
+            
+            <div class="card">
+                <h3>Plant Diesease Detection using leaf image</h3>
+                <p>•	Built a deep learning-based web app using a CNN (RNN-9) model to detect plant diseases from leaf images with 98% accuracy.
+•	Utilized Python, Keras, Flask, and implemented real-time image prediction via a web interface.
+•	Preprocessed datasets, trained the model, and pushed the entire project to GitHub for collaboration and version control.</p>
+            </div>
+            
+            <div class="card">
+                <h3>Energy drink market analysis</h3>
+                <p>•	Analyzed survey data from 10K respondents across 10 cities using Python and Excel.
+•	Delivered insights on consumer behavior and preferences to support marketing and product strategy.
+•	Helped the team improve brand positioning and target market decisions.</p>
+            </div>
+            
+            <div class="card">
+                <h3>Portfolio</h3>
+                <p>BE candidate in Artificial Intelligence and Data Science with intermediate knowledge in Python, SQL, and data analysis frameworks. Demonstrated expertise in high-volume data processing, predictive modeling, and operational optimisation. Adept at delivering precise and high-quality outcomes in dynamic, high stakes environments.</p>
+            </div>
+            
+        </div>
+    </section>    
+
+    <section class="certificates" id='certificates'>
+        <h2>Certificates</h2>
+        <ul>
+            
+                <li>Foundations: Data, Data Everywhere - Google, Coursera (July 30, 2023)</li>
+            
+                <li>Supervised Machine Learning: Regression and  Classification - Deeplearning.ai, Standford online, Coursera (Aug. 16, 2023)</li>
+            
+                <li>Advanced Learning Algorithms - Deeplearning.ai, Standford online, Coursera (Dec. 9, 2023)</li>
+            
+        </ul>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Contact Info</h2>
+        <ul class="contact-list">
+            <li><strong>Email:</strong> yashkesharwani.india@gmail.com</li>
+            <li><strong>Mobile:</strong> +91-9359238970</li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/Yash-Kesharwani1" target="_blank">Yash-Kesharwani1</a></li>
+            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/yash-kesharwani-8a386322a/" target="_blank">Yash Kesharwani</a></li>
+        </ul>
+    </section>
+    
+
+    <footer>
+        <p>&copy; 2025 Yash Kesharwani. All rights reserved.</p>
+    </footer>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            const body = document.body;
+            if (sidebar.style.width === "250px") {
+                sidebar.style.width = "0";
+                body.classList.remove("sidebar-open");
+            } else {
+                sidebar.style.width = "250px";
+                body.classList.add("sidebar-open");
+            }
+        }
+        </script>
+        
+</body>
+
+</html>
